@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BitPro Tracker</title>
+    <link rel="icon" type="image/x-icon" href="img/Favicon.png">
+    <link rel="stylesheet" href="opmaak.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #141416;">
+        <a class="navbar-brand navbarLogo" href="#">
+            <img src="img/BitproLogo.png" height="40px" width="auto" class="d-inline-block align-bottom" alt="BitPro logo">
+        </a>
+        <p class="navbar-nav navbarText">Mikail </p>
+        <div>
+            <button id="themeToggleBtn"></button>
+        </div>
+    </nav>
+</header>
+
+<div class="custom-container">
+    <div class="inner-container mx-auto">
+        <div class="row justify-content-between">
+            <div class="col-6">
+                <div class="text-container">
+                    <p class="big-text">Today's <br> Cryptocurrency <br> prices</p>
+                    <p class="small-text">Easy to find & manage</p>
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="image-container">
+                    <img src="img/Coins.gif" alt="coinpic" height="300px" width="auto">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="searchBar dark-mode light-mode">
+    <div class="inner-container">
+        <div class="row">
+            <div class="col">
+                <h4>Look up a currency rate</h4>
+                <div class="searchBarSelect">
+                    <select id="cryptoSelect" class="custom-select cryptoSelector" aria-label="Select cryptocurrency symbol"></select>
+                    <button id="checkRateButton" class="cryptoSelectorButton">Find</button>
+                </div>
+           </div>
+            <div class="col searchBarResult">
+                <div id="resultRates">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="socials">
+                    <h4>My favorites</h4>
+                    <img src="img/facebook.svg" id="shareFacebookButton">
+                    <img src="img/instagram.svg" id="shareInstagramButton">
+                    <img src="img/twitter.svg" id="shareTwitterButton">
+                </div>
+                <div class="searchBarSelectFav">
+                </div>
+           </div>
+        </div>
+    </div>
+</div>
+
+<div class="cryptoRate">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Marketcap</th>
+            <th scope="col">24%</th>
+          </tr>
+        </thead>
+        <tbody id="cryptoRateBody">
+
+        </tbody>
+    </table>
+</div>
+
+<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="java.js"></script>
+
+</body>
+</html>
+
+  

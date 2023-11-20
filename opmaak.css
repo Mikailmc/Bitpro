@@ -1,0 +1,209 @@
+:root {
+    --text-color-light: #e1e1e5;
+    --background-color-light: #d8d8d8;
+    --background-image-light: linear-gradient(to right, #be5f37, #1ea727, #1a44c0);
+
+    --text-color-dark: #9297A6; 
+    --text-color-darker: #B9B7B7;
+    --background-color-dark: #141416;
+    --background-color-dark-blue: #2C2F43;
+    --background-color-dark-green: #28333E;
+    --background-image-dark: linear-gradient(to right, #282B37, #23262F, #191D29);
+}
+ 
+body.light-mode {
+    color: var(--text-color-light) !important;
+    font-family: 'Aldrich', sans-serif !important;
+    background-color: var(--background-color-light) !important;
+}
+
+ body.dark-mode {
+    color: var(--text-color-dark) !important;
+    font-family: 'Aldrich', sans-serif !important;
+    background-color: var(--background-color-dark) !important;
+}
+
+.rate-increase {
+    color: green;
+}
+.rate-decrease {
+    color: red;
+}
+
+.navbar{
+    height: 80px;
+}
+.navbarText{
+    padding-left: 15px !important;
+    border-left: 2px solid white;
+}
+
+#themeToggleBtn{
+    width: 100px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    color: #B9B7B7;
+    border-radius: 10px;
+    background-color: #28333E;}
+
+.big-text {
+    color: white;
+    line-height: 1;
+    font-size: 60px;
+    margin-top: -5%;
+}
+.small-text {
+    color: white;
+    font-size: 40px;
+    line-height: 0.9;
+    padding-top: 40px;
+}
+.custom-container {
+    z-index: 0;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    align-items: center;
+    padding-right: 30px;
+    background-color: #25343B;
+    background-image: 
+        linear-gradient(115deg, rgb(211 255 215), rgb(0 0 0)), 
+        radial-gradient(90% 100% at calc(50% + var(--x, 0%)) calc(0% + var(--y, 0%)), rgb(200 200 200), rgb(22 0 45)), 
+        radial-gradient(100% 100% at calc(80% - var(--x, 0%)) calc(0% - var(--y, 0%)), rgb(250 255 0), rgb(36 0 0)), 
+        radial-gradient(150% 210% at calc(100% + var(--x, 0%)) calc(0% + var(--y, 0%)), rgb(20 175 125), rgb(0 10 255)), 
+        radial-gradient(100% 100% at calc(100% - var(--x, 0%)) calc(30% - var(--y, 0%)), rgb(255 77 0), rgb(0 200 255)), 
+        linear-gradient(60deg, rgb(255 0 0), rgb(120 86 255));
+    background-blend-mode: overlay, overlay, difference, difference, difference, normal;
+    animation: moveBackground 50s linear infinite;
+}
+
+.searchBar.light-mode {
+    z-index: 1;
+    display: flex;
+    height: 250px;
+    position: relative;
+    align-items: center;
+    border-radius: 40px;
+    align-items: center;
+    margin: -15% 10% 0 10%;
+    justify-content: center;
+    background-image: var(--background-image-light);
+}
+.searchBar.dark-mode {
+    z-index: 1;
+    display: flex;
+    height: 250px;
+    position: relative;
+    align-items: center;
+    border-radius: 40px;
+    align-items: center;
+    margin: -15% 10% 0 10%;
+    justify-content: center;
+    background-image: var(--background-image-dark);
+}
+
+.inner-container {
+    max-width: 100%;
+}
+
+.searchBarSelect{
+    gap: 5%;
+    display: flex;
+    flex-direction: row;
+}
+
+.cryptoSelector.light-mode {
+    width: 350px;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: var(--background-color-light);
+}
+
+.cryptoSelector.dark-mode{
+    width: 350px;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: var(--background-color-dark-blue);
+}
+
+.cryptoSelectorButton{
+    width: 100px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    color: #B9B7B7;
+    border-radius: 10px;
+    background-color: #28333E;
+}
+
+.searchBarSelect button:hover{
+    color: White;
+    background-color: #191D29;
+}
+
+.searchBarResult {
+    display: flex;
+    align-items: center;
+}
+
+#addFavButton{
+    margin-top: -35px;;
+    float: right;
+    width: 100px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    color: #B9B7B7;
+    margin-left: -20px;
+    border-radius: 10px;
+    background-color: #28333E;
+}
+
+.deleteBtn{
+    color: white !important;
+    padding-left: 10px !important;
+}
+
+.socials {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.socials h4{
+    margin-top: 10px;
+}
+
+.socials img{
+    width: 20px;
+    height: auto;
+    margin-left: 10px;
+}
+
+
+.cryptoRate{
+    z-index: 0;
+    display: flex;
+    position: relative;
+    margin: 5% 10% 0 10%;
+}
+ 
+.table thead{
+    border-bottom: 2px solid #25343B !important;
+}
+
+.table {
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    color: #565B69;
+    border: none !important;
+}
