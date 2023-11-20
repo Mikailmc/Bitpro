@@ -1,7 +1,7 @@
 :root {
     --text-color-light: #e1e1e5;
     --background-color-light: #d8d8d8;
-    --background-image-light: linear-gradient(to right, #be5f37, #1ea727, #1a44c0);
+    --background-image-light: linear-gradient(to right, #be5f37, #1ea727, #c3c9d8);
 
     --text-color-dark: #9297A6; 
     --text-color-darker: #B9B7B7;
