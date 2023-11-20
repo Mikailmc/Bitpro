@@ -50,12 +50,12 @@ body.light-mode {
 .big-text {
     color: white;
     line-height: 1;
-    font-size: 60px;
+    font-size: 3.75rem;
     margin-top: -5%;
 }
 .small-text {
     color: white;
-    font-size: 40px;
+    font-size: 2.5rem;
     line-height: 0.9;
     padding-top: 40px;
 }
@@ -87,7 +87,7 @@ body.light-mode {
     align-items: center;
     border-radius: 40px;
     align-items: center;
-    margin: -15% 10% 0 10%;
+    margin: -10% 10% 0 10%;
     justify-content: center;
     background-image: var(--background-image-light);
 }
@@ -99,7 +99,7 @@ body.light-mode {
     align-items: center;
     border-radius: 40px;
     align-items: center;
-    margin: -15% 10% 0 10%;
+    margin: -10% 10% 0 10%;
     justify-content: center;
     background-image: var(--background-image-dark);
 }

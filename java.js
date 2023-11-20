@@ -9,9 +9,9 @@ container.addEventListener('mousemove', function (e) {
     container.style.setProperty('--y', y * 100 + '%');
 });
     
-    // Gegevens zijn opgehaald van een REST API en ingevult in de vervolgkeuzelijst (dropdown).
+// Gegevens zijn opgehaald van een REST API en ingevult in de vervolgkeuzelijst (dropdown).
 const populateCryptoDropdown = async () => {
-    const accessKey = 'd14efbf89d56283c1b6ea4a0fd6015fb'; 
+    const accessKey = 'c77cdb957e9c68681f1c3f4b36e3e9a2'; 
     const symbolsUrl = `http://api.coinlayer.com/list?expand=1&access_key=${accessKey}`;
 
     try {
@@ -47,7 +47,7 @@ const updateCryptoDropdown = (data) => {
 // Event listener voor de "Check Rate" button
 document.getElementById('checkRateButton').addEventListener('click', async () => {
     const selectedSymbol = document.getElementById('cryptoSelect').value;
-    const accessKey = 'd14efbf89d56283c1b6ea4a0fd6015fb';
+    const accessKey = 'c77cdb957e9c68681f1c3f4b36e3e9a2';
     const currentDate = new Date().toISOString().split('T')[0];
     const yesterdayDate = new Date();
     yesterdayDate.setDate(yesterdayDate.getDate() - 1);
@@ -76,12 +76,10 @@ document.getElementById('checkRateButton').addEventListener('click', async () =>
                 const resultRatesElement = document.getElementById('resultRates');
                 resultRatesElement.innerHTML = `<h5>Huidige rate van  ${selectedSymbol}:</h5> <p class="${rateChange >= 0 ? 'rate-increase' : 'rate-decrease'}">${todayRate}</p>`;
 
-                // Add the "Add to Favorites" button
                 const addFavButton = document.createElement('button');
                 addFavButton.id = 'addFavButton';
                 addFavButton.textContent = 'Favo';
                 addFavButton.addEventListener('click', () => {
-                    // Add your logic to handle adding to favorites
                     addToFavorites(selectedSymbol);
                     updateFavoriteCurrenciesDisplay();
                 });
@@ -99,19 +97,19 @@ document.getElementById('checkRateButton').addEventListener('click', async () =>
     }
 });
 
-// Function to add a currency to favorites
+//Functie om een favoriet toe te voegen
 const addToFavorites = () => {
-    // Get the selected currency symbol from the dropdown
+    //De geselecteerde currencie zijn info/ value verkijrgen
     const selectedSymbol = document.getElementById('cryptoSelect').value;
 
-    // Retrieve existing favorite currencies from local storage
+    //Bestaande favoriete currencies van local storage
     let storedCurrencies = localStorage.getItem('favoriteCurrencies');
     let existingFavorites;
 
     if (storedCurrencies) {
         existingFavorites = JSON.parse(storedCurrencies);
 
-        // Check if the currency is already in the favorites list
+        //Checkt of de currencie al bestaat in de lijst => popup/ alert
         const isDuplicate = existingFavorites.some(currency => currency.symbol === selectedSymbol);
 
         if (isDuplicate) {
@@ -122,19 +120,19 @@ const addToFavorites = () => {
         existingFavorites = [];
     }
 
-    // Add the new currency to the array of favorites
+    //De Nieuwe currency toevoegen aan de  array van favorieten
     existingFavorites.push({ symbol: selectedSymbol });
 
-    // Store in local storage
+    //Bijhouden bij de Local Storage
     localStorage.setItem('favoriteCurrencies', JSON.stringify(existingFavorites));
 
-    // Refresh the display of favorite currencies
+    // Refresh de display van favoriete currencies
     updateFavoriteCurrenciesDisplay();
 };
 
-// Function to delete a currency from favorites
+// Functie om een currencie bij favorieten te verwijderen
 const deleteFromFavorites = (index) => {
-    // Retrieve existing favorite currencies from local storage
+    //Bestaande favoriete currencies van local storage
     let storedCurrencies = localStorage.getItem('favoriteCurrencies');
     let existingFavorites;
 
@@ -142,17 +140,17 @@ const deleteFromFavorites = (index) => {
         existingFavorites = JSON.parse(storedCurrencies);
         existingFavorites.splice(index, 1);
 
-        // Store the updated favorites in local storage
+        //De updated currencie lijst opslaan bij de Local Storage
         localStorage.setItem('favoriteCurrencies', JSON.stringify(existingFavorites));
 
-        // Refresh the display of favorite currencies
+        // Refresh de display van favoriete currencies
         updateFavoriteCurrenciesDisplay();
     }
 };
 
-// Function to display favorite currencies
+//Functie om de favoriete currencies te tonen
 const updateFavoriteCurrenciesDisplay = () => {
-    // Retrieve existing favorite currencies from local storage
+    //Bestaande favoriete currencies van local storage
     const storedCurrencies = localStorage.getItem('favoriteCurrencies');
     let existingFavorites;
     if (storedCurrencies) {
@@ -161,15 +159,15 @@ const updateFavoriteCurrenciesDisplay = () => {
         existingFavorites = [];
     }
 
-    // Log the length of existingFavorites to help with debugging
+    //Aantal favorieten in de favorietenlijst
     console.log('Number of existing favorites:', existingFavorites.length);
 
-    // Clear the content of the favorites container
+    //De favoriete contect leeghalen
     const favoritesContainer = document.querySelector('.searchBarSelectFav');
     favoritesContainer.innerHTML = "";
 
     if (existingFavorites.length > 0) {
-        // If there are favorite currencies, create elements to display them
+        //Als er favoriete currencies zijn, die toevoegen
         const favoritesList = document.createElement('ul');
 
         existingFavorites.forEach((currency, index) => {
@@ -181,7 +179,7 @@ const updateFavoriteCurrenciesDisplay = () => {
                 </div>`;
         });
 
-        // Append the favorites list to the container
+        //Append/ voeg de favorietenlijst toe aan de list
         favoritesContainer.appendChild(favoritesList);
     } else {
         // If there are no favorite currencies, display a message
@@ -204,16 +202,16 @@ const appendRowToTable = (tableBody, data) => {
 
 const getTop5CryptosByMaxSupply = (dataCrypto) => {
     const cryptoArray = Object.values(dataCrypto);
-    //Sorteert de  cryptocurrencies van max_supply in descending order
+    //Sorteert de cryptocurrencies van max_supply in descending order
     const sortedCryptos = cryptoArray.sort((a, b) => b.max_supply - a.max_supply);
-    // Get the top 5
+    //Krijg de top 5
     const top5Cryptos = sortedCryptos.slice(0, 5);
     return top5Cryptos;
 };
 
 //Functie om de top 5 crypto rates te bekijken
 const checkTop5CryptoRates = async () => {
-    const accessKey = 'd14efbf89d56283c1b6ea4a0fd6015fb';
+    const accessKey = 'c77cdb957e9c68681f1c3f4b36e3e9a2';
     const top5Url = `http://api.coinlayer.com/list?expand=1&access_key=${accessKey}`;
 
     try {
@@ -282,9 +280,9 @@ const checkTop5CryptoRates = async () => {
 };
 
 
-// Function to generate shareable content for favorites
+//Functie voor het delen van favorieten op socialmedia platformen
 const generateShareableContent = () => {
-    // Retrieve existing favorite currencies from local storage
+    //achterhaal alle bestaande currencies in de Local Storage
     const storedCurrencies = localStorage.getItem('favoriteCurrencies');
     let existingFavorites;
 
@@ -294,44 +292,37 @@ const generateShareableContent = () => {
         existingFavorites = [];
     }
 
-    // Create a string with the favorite currencies
+    //String voor alle favoriete currencies
     const favoritesString = existingFavorites.map(currency => currency.symbol).join(', ');
 
     return `My favorite currencies: ${favoritesString}`;
 };
 
-// Function to share on Instagram
 const shareOnInstagram = () => {
     const shareContent = generateShareableContent();
 
-    // Implement Instagram sharing logic here
-    // You may need to use the Instagram API or open the Instagram app if on a mobile device
     console.log('Sharing on Instagram:', shareContent);
+    alert('Sharing on Instagram:');
 };
 
-// Function to share on Facebook
 const shareOnFacebook = () => {
     const shareContent = generateShareableContent();
 
-    // Implement Facebook sharing logic here
-    // You can use the Facebook SDK or open the Facebook sharing dialog
     console.log('Sharing on Facebook:', shareContent);
+    alert('Sharing on Facebook:');
 };
-
-// Function to share on Twitter
 const shareOnTwitter = () => {
     const shareContent = generateShareableContent();
 
-    // Implement Twitter sharing logic here
-    // You can use the Twitter API or open the Twitter sharing dialog
     console.log('Sharing on Twitter:', shareContent);
+    alert('Sharing on Twitter:');
 };
 
-// Example: Add event listeners to trigger sharing functions
 document.getElementById('shareInstagramButton').addEventListener('click', shareOnInstagram);
 document.getElementById('shareFacebookButton').addEventListener('click', shareOnFacebook);
 document.getElementById('shareTwitterButton').addEventListener('click', shareOnTwitter);
-//Initiële populatie van de dropdown en controle van de top 5 cryptotarieven    (async () => {
+
+//Initiële populatie van de dropdown en controle van de top 5 cryptotarieven
 document.addEventListener('DOMContentLoaded', () => {
     (async () => {
         console.log('Calling populateCryptoDropdown');
@@ -357,15 +348,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const searchBar = document.querySelector('.searchBar');
     const cryptoSelector = document.querySelector('.cryptoSelector');
 
-    // Check the user's preferred theme
+    //Gebruiker zijn voorkeur thema bekijken/ onderzoeken
     const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    // Set initial theme based on user preference
+    //initiele voorkeur toepassen
     if (prefersDarkMode) {
         setDarkMode();
     }
 
-    // Toggle between light and dark mode
+    // Toggle tussen light en dark mode
     themeToggleBtn.addEventListener('click', function () {
         if (body.classList.contains('light-mode')) {
             setDarkMode();
