@@ -74,7 +74,7 @@ document.getElementById('checkRateButton').addEventListener('click', async () =>
 
                 const rateChange = todayRate - yesterdayRate;
                 const resultRatesElement = document.getElementById('resultRates');
-                resultRatesElement.innerHTML = `<h5>Huidige rate van  ${selectedSymbol}:</h5> <p class="${rateChange >= 0 ? 'rate-increase' : 'rate-decrease'}">${todayRate}</p>`;
+                resultRatesElement.innerHTML = `<h5>Current rate of  ${selectedSymbol}:</h5> <p class="${rateChange >= 0 ? 'rate-increase' : 'rate-decrease'}">${todayRate}</p>`;
 
                 const addFavButton = document.createElement('button');
                 addFavButton.id = 'addFavButton';
